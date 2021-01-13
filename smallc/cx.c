@@ -18,6 +18,8 @@ char
  pline[LINESIZE],               /* parsing buffer */
  mline[LINESIZE],               /* macro buffer */
  swq[SWTABSZ],                  /* switch queue */
+*swnext,                        /* address of next entry */
+*swend,                         /* address of last table entry */
 *line,                          /* points to pline or mline */
 *lptr,                          /* ptr to either */
 *glbptr,                        /* ptrs to next entries */
@@ -39,8 +41,6 @@ int
  opsize,                        /* size of operator in bytes */
  swactive,                      /* true inside a switch */
  swdefault,                     /* default label #, else 0 */
-*swnext,                        /* address of next entry */
-*swend,                         /* address of last table entry */
  wq[WQTABSZ],                   /* while queue */
 *wqptr,                         /* ptr to next entry */
  litptr,                        /* ptr to next entry */
@@ -68,10 +68,10 @@ int
  xi,                            /* work int */
 *xip;                           /* work int ptr */
 
-FILE * input,                   /* file pointer for input file */
-    *input2,                    /* file pointer for "include" file */
-    *output,                    /* file pointer for output file */
-    *listfp;                    /* file pointer to list device */
+FILE *input,                    /* file pointer for input file */
+*input2,                        /* file pointer for "include" file */
+*output,                        /* file pointer for output file */
+*listfp;                        /* file pointer to list device */
 
 int
  (*oper)(),                     /* address of binary operator function */

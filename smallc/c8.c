@@ -272,7 +272,7 @@ int lval[];
 char *start;
 {
 
-/*        if (lval[5])              */
+/*        if (lval[LVSECR])         */
     /*                pop();            *//* secondary was used */
 /*        else                      */
 /*                unpush(start);        */
@@ -386,7 +386,7 @@ int label, lval[];
 int (*oper)();
 {
 
-    clearstage(lval[7], NULL);  /* clear conventional code */
+    clearstage(lval[LVSTGP], NULL);     /* clear conventional code */
     (*oper) (label);
 }
 

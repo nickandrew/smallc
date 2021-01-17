@@ -103,9 +103,10 @@ int lval[];
                 call("CCGINT");
         }
         return;
-    } else
+    } else {
         fprintf(stderr, "* indirect: no link to symbol table\n");
-    exit(1);
+        exit(1);
+    }
 
 /*    if (lval[LVSTYPE] == CCHAR)
         call("CCGCHAR");
@@ -197,9 +198,11 @@ int lval[];
                 call("CCPINT");
             return;
         }
-    } else
+    } else {
         fprintf(stderr, "* putstk: no link to symbol table\n");
-    exit(1);
+        exit(1);
+    }
+
 
 /*    if (lval[LVSTYPE] == CCHAR) {
 **      ol("LD\tA,L");

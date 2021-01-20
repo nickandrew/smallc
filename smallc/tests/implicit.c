@@ -1,14 +1,14 @@
 
-int     sargc;
-char    **sargv;
+int sargc;
+char **sargv;
 
 main(argc, argv)
-int     argc, *argv;
-        {
+int argc, *argv;
+{
 
-        parse();
-        outside();
-        trailer();
+    parse();
+    outside();
+    trailer();
 }
 
 /*
@@ -20,6 +20,6 @@ int     argc, *argv;
 */
 
 parse()
-        {
+{
 
 }

@@ -1,9 +1,11 @@
-main() {
-	puts("Start");
-	func1();
-	puts("End");
+main()
+{
+    puts("Start");
+    func1();
+    puts("End");
 }
 
-*func1() {
-	puts("Func1");
+*func1()
+{
+    puts("Func1");
 }

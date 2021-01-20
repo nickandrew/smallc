@@ -1,8 +1,8 @@
 extern char *line;
 
-main(argc,argv)
-int  argc;
+main(argc, argv)
+int argc;
 char *argv[];
 {
-argc=2;
+    argc = 2;
 }

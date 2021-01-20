@@ -4,4 +4,4 @@ extern int f();
 char a[5];
 char *b[3];
 char *(c[5]);
-int  **d;
+int **d;

@@ -1,7 +1,9 @@
-main() {
-   func();
+main()
+{
+    func();
 }
 
-int  *x[5],func() {
-   puts("A function");
+int *x[5], func()
+{
+    puts("A function");
 }

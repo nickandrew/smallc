@@ -1,19 +1,21 @@
-;main() {
+;main()
 	COM	'<small c compiler output>'
 *MOD
+;{
 _MAIN:
 	DEBUG	'main'
-;   func();
+;    func();
 	CALL	_FUNC
 ;}
 	RET
 ;
-;int  *x[5],func() {
+;int *x[5], func()
 _X:
 	DC	10,0
+;{
 _FUNC:
 	DEBUG	'func'
-;   puts("A function");
+;    puts("A function");
 	LD	HL,$?2+0
 	PUSH	HL
 	CALL	_PUTS

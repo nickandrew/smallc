@@ -1,24 +1,24 @@
 ;
-;int     sargc;
+;int sargc;
 	COM	'<small c compiler output>'
 *MOD
 _SARGC:
 	DC	2,0
-;char    **sargv;
+;char **sargv;
 _SARGV:
 	DC	2,0
 ;
 ;main(argc, argv)
-;int     argc, *argv;
+;int argc, *argv;
 _MAIN:
 	DEBUG	'main'
-;        {
+;{
 ;
-;        parse();
+;    parse();
 	CALL	_PARSE
-;        outside();
+;    outside();
 	CALL	_OUTSIDE
-;        trailer();
+;    trailer();
 	CALL	_TRAILER
 ;}
 	RET
@@ -32,7 +32,7 @@ _MAIN:
 ;*/
 ;
 ;parse()
-;        {
+;{
 _PARSE:
 	DEBUG	'parse'
 ;

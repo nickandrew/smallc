@@ -1,12 +1,13 @@
-;main() {
+;main()
 	COM	'<small c compiler output>'
 *MOD
+;{
 _MAIN:
 	DEBUG	'main'
-;	int	(*fp)(),func1(),func2();
-;	int	func3();
+;    int (*fp)(), func1(), func2();
+;    int func3();
 ;
-;	fp = func1;
+;    fp = func1;
 	PUSH	BC
 	LD	HL,0
 	ADD	HL,SP
@@ -15,7 +16,7 @@ _MAIN:
 	POP	DE
 	CALL	CCPINT
 ;
-;	(*fp)(4);
+;    (*fp) (4);
 	LD	HL,0
 	ADD	HL,SP
 	CALL	CCGINT
@@ -27,7 +28,7 @@ _MAIN:
 	EX	(SP),HL
 	JP	(HL)
 	POP	BC
-;	(fp)(4);
+;    (fp) (4);
 	LD	HL,0
 	ADD	HL,SP
 	CALL	CCGINT
@@ -44,11 +45,11 @@ _MAIN:
 	RET
 ;
 ;func1(arg)
-;int	arg;
+;int arg;
 _FUNC1:
 	DEBUG	'func1'
 ;{
-;	return arg;
+;    return arg;
 	LD	HL,2
 	ADD	HL,SP
 	CALL	CCGINT

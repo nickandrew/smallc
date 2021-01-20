@@ -1,76 +1,77 @@
-;int	x,y;
+;int x, y;
 	COM	'<small c compiler output>'
 *MOD
 _X:
 	DC	2,0
 _Y:
 	DC	2,0
-;int	*ip;
+;int *ip;
 _IP:
 	DC	2,0
-;char	c,d;
+;char c, d;
 _C:
 	DC	1,0
 _D:
 	DC	1,0
-;char	*cp;
+;char *cp;
 _CP:
 	DC	2,0
 ;
-;main() {
+;main()
+;{
 _MAIN:
 	DEBUG	'main'
-;	x = *ip;
+;    x = *ip;
 	LD	HL,(_IP)
 	CALL	CCGINT
 	LD	(_X),HL
 ;
-;	ip = &x;
+;    ip = &x;
 	LD	HL,_X
 	LD	(_IP),HL
 ;
-;	x = -y;
+;    x = -y;
 	LD	HL,(_Y)
 	CALL	CCNEG
 	LD	(_X),HL
 ;
-;	x = !y;
+;    x = !y;
 	LD	HL,(_Y)
 	CALL	CCLNEG
 	LD	(_X),HL
 ;
-;	x = ~y;
+;    x = ~y;
 	LD	HL,(_Y)
 	CALL	CCCOM
 	LD	(_X),HL
 ;
-;	x = ++y;
+;    x = ++y;
 	LD	HL,(_Y)
 	INC	HL
 	LD	(_Y),HL
 	LD	(_X),HL
 ;
-;	x = --y;
+;    x = --y;
 	LD	HL,(_Y)
 	DEC	HL
 	LD	(_Y),HL
 	LD	(_X),HL
 ;
-;	x = y++;
+;    x = y++;
 	LD	HL,(_Y)
 	INC	HL
 	LD	(_Y),HL
 	DEC	HL
 	LD	(_X),HL
 ;
-;	x = y--;
+;    x = y--;
 	LD	HL,(_Y)
 	DEC	HL
 	LD	(_Y),HL
 	INC	HL
 	LD	(_X),HL
 ;
-;	x = x * y;
+;    x = x * y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -78,7 +79,7 @@ _MAIN:
 	CALL	CCMULT
 	LD	(_X),HL
 ;
-;	x = x / y;
+;    x = x / y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -86,7 +87,7 @@ _MAIN:
 	CALL	CCDIV
 	LD	(_X),HL
 ;
-;	x = x % y;
+;    x = x % y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -95,7 +96,7 @@ _MAIN:
 	EX	DE,HL
 	LD	(_X),HL
 ;
-;	x = x + y;
+;    x = x + y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -103,7 +104,7 @@ _MAIN:
 	ADD	HL,DE
 	LD	(_X),HL
 ;
-;	x = x - y;
+;    x = x - y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -111,7 +112,7 @@ _MAIN:
 	CALL	CCSUB
 	LD	(_X),HL
 ;
-;	x = y << 1;
+;    x = y << 1;
 	LD	HL,(_Y)
 	PUSH	HL
 	LD	HL,1
@@ -119,7 +120,7 @@ _MAIN:
 	CALL	CCASL
 	LD	(_X),HL
 ;
-;	x = y >> 1;
+;    x = y >> 1;
 	LD	HL,(_Y)
 	PUSH	HL
 	LD	HL,1
@@ -127,7 +128,7 @@ _MAIN:
 	CALL	CCASR
 	LD	(_X),HL
 ;
-;	x = x < y;
+;    x = x < y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -135,7 +136,7 @@ _MAIN:
 	CALL	CCLT
 	LD	(_X),HL
 ;
-;	x = x > y;
+;    x = x > y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -143,7 +144,7 @@ _MAIN:
 	CALL	CCGT
 	LD	(_X),HL
 ;
-;	x = x <= y;
+;    x = x <= y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -151,7 +152,7 @@ _MAIN:
 	CALL	CCLE
 	LD	(_X),HL
 ;
-;	x = x >= y;
+;    x = x >= y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -159,7 +160,7 @@ _MAIN:
 	CALL	CCGE
 	LD	(_X),HL
 ;
-;	x = x == y;
+;    x = x == y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -167,7 +168,7 @@ _MAIN:
 	CALL	CCEQ
 	LD	(_X),HL
 ;
-;	x = x != y;
+;    x = x != y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -175,7 +176,7 @@ _MAIN:
 	CALL	CCNE
 	LD	(_X),HL
 ;
-;	x = x & y;
+;    x = x & y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -183,7 +184,7 @@ _MAIN:
 	CALL	CCAND
 	LD	(_X),HL
 ;
-;	x = x ^ y;
+;    x = x ^ y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -191,7 +192,7 @@ _MAIN:
 	CALL	CCXOR
 	LD	(_X),HL
 ;
-;	x = x | y;
+;    x = x | y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -199,7 +200,7 @@ _MAIN:
 	CALL	CCOR
 	LD	(_X),HL
 ;
-;	x = x && y;
+;    x = x && y;
 	LD	HL,(_X)
 	LD	A,H
 	OR	L
@@ -215,7 +216,7 @@ $?2:
 $?3:
 	LD	(_X),HL
 ;
-;	x = x || y;
+;    x = x || y;
 	LD	HL,(_X)
 	LD	A,H
 	OR	L
@@ -231,17 +232,17 @@ $?4:
 $?5:
 	LD	(_X),HL
 ;
-;	x = 1;
+;    x = 1;
 	LD	HL,1
 	LD	(_X),HL
 ;
-;	x += 1;
+;    x += 1;
 	LD	HL,(_X)
 	LD	DE,1
 	ADD	HL,DE
 	LD	(_X),HL
 ;
-;	x -= 1;
+;    x -= 1;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,1
@@ -249,7 +250,7 @@ $?5:
 	CALL	CCSUB
 	LD	(_X),HL
 ;
-;	x *= y;
+;    x *= y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -257,7 +258,7 @@ $?5:
 	CALL	CCMULT
 	LD	(_X),HL
 ;
-;	x /= y;
+;    x /= y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -265,7 +266,7 @@ $?5:
 	CALL	CCDIV
 	LD	(_X),HL
 ;
-;	x %= y;
+;    x %= y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -274,7 +275,7 @@ $?5:
 	EX	DE,HL
 	LD	(_X),HL
 ;
-;	x >>= y;
+;    x >>= y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -282,7 +283,7 @@ $?5:
 	CALL	CCASR
 	LD	(_X),HL
 ;
-;	x <<= y;
+;    x <<= y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -290,7 +291,7 @@ $?5:
 	CALL	CCASL
 	LD	(_X),HL
 ;
-;	x &= y;
+;    x &= y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -298,7 +299,7 @@ $?5:
 	CALL	CCAND
 	LD	(_X),HL
 ;
-;	x ^= y;
+;    x ^= y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)
@@ -306,7 +307,7 @@ $?5:
 	CALL	CCXOR
 	LD	(_X),HL
 ;
-;	x |= y;
+;    x |= y;
 	LD	HL,(_X)
 	PUSH	HL
 	LD	HL,(_Y)

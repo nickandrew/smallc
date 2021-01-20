@@ -1,4 +1,4 @@
-;char  *charptr;
+;char *charptr;
 	COM	'<small c compiler output>'
 *MOD
 _CHARPTR:
@@ -8,9 +8,9 @@ _CHARPTR:
 ;{
 _MAIN:
 	DEBUG	'main'
-;   char *var1[7];
-;   int  var2,var3;
-;   charptr=var1[-2];
+;    char *var1[7];
+;    int var2, var3;
+;    charptr = var1[-2];
 	LD	HL,-18
 	ADD	HL,SP
 	LD	SP,HL
@@ -20,18 +20,18 @@ _MAIN:
 	ADD	HL,DE
 	CALL	CCGINT
 	LD	(_CHARPTR),HL
-;   charptr = var2;
+;    charptr = var2;
 	LD	HL,2
 	ADD	HL,SP
 	CALL	CCGINT
 	LD	(_CHARPTR),HL
-;   charptr = var3;
+;    charptr = var3;
 	LD	HL,0
 	ADD	HL,SP
 	CALL	CCGINT
 	LD	(_CHARPTR),HL
 ;
-;   charptr=var1[-1];
+;    charptr = var1[-1];
 	LD	HL,4
 	ADD	HL,SP
 	DEC	HL
@@ -39,13 +39,13 @@ _MAIN:
 	CALL	CCGINT
 	LD	(_CHARPTR),HL
 ;
-;   charptr=var1[0];
+;    charptr = var1[0];
 	LD	HL,4
 	ADD	HL,SP
 	CALL	CCGINT
 	LD	(_CHARPTR),HL
 ;
-;   charptr=var1[1];
+;    charptr = var1[1];
 	LD	HL,4
 	ADD	HL,SP
 	INC	HL
@@ -53,7 +53,7 @@ _MAIN:
 	CALL	CCGINT
 	LD	(_CHARPTR),HL
 ;
-;   charptr=var1[2];
+;    charptr = var1[2];
 	LD	HL,4
 	ADD	HL,SP
 	LD	DE,4

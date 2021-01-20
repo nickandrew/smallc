@@ -3,15 +3,16 @@
 *MOD
 _CPTR:
 	DC	2,0
-;int  *iptr;
+;int *iptr;
 _IPTR:
 	DC	2,0
-;main() {
+;main()
+;{
 _MAIN:
 	DEBUG	'main'
-;	char c;
-;	int  i;
-;	c=cptr;
+;    char c;
+;    int i;
+;    c = cptr;
 	DEC	SP
 	PUSH	BC
 	LD	HL,2
@@ -21,7 +22,7 @@ _MAIN:
 	POP	DE
 	LD	A,L
 	LD	(DE),A
-;	c= *cptr;
+;    c = *cptr;
 	LD	HL,2
 	ADD	HL,SP
 	PUSH	HL
@@ -30,7 +31,7 @@ _MAIN:
 	POP	DE
 	LD	A,L
 	LD	(DE),A
-;	c = *(cptr + 3);
+;    c = *(cptr + 3);
 	LD	HL,2
 	ADD	HL,SP
 	PUSH	HL
@@ -41,7 +42,7 @@ _MAIN:
 	POP	DE
 	LD	A,L
 	LD	(DE),A
-;	i = *(iptr + 3);
+;    i = *(iptr + 3);
 	LD	HL,0
 	ADD	HL,SP
 	PUSH	HL

@@ -4,11 +4,11 @@
 ;{
 _MAIN:
 	DEBUG	'main'
-;    int    e,f;
-;    char   ( *(func()) ) [6];
-;    char   (*x)[4];
+;    int e, f;
+;    char (* (func()))[6];
+;    char (*x)[4];
 ;
-;    x = func(1,3);
+;    x = func(1, 3);
 	PUSH	BC
 	PUSH	BC
 	PUSH	BC
@@ -41,17 +41,17 @@ _MAIN:
 	POP	BC
 	RET
 ;
-;char (*(func(e,f)))[6]
-;int  e,f;
+;char (*(func(e, f)))[6]
+;int e, f;
 _FUNC:
 	DEBUG	'func'
 ;{
-;   puts("This is func\n");
+;    puts("This is func\n");
 	LD	HL,$?2+0
 	PUSH	HL
 	CALL	_PUTS
 	POP	BC
-;   return e;
+;    return e;
 	LD	HL,4
 	ADD	HL,SP
 	CALL	CCGINT

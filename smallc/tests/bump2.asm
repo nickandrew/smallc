@@ -1,14 +1,15 @@
-;int  *iptr;
+;int *iptr;
 	COM	'<small c compiler output>'
 *MOD
 _IPTR:
 	DC	2,0
-;main() {
+;main()
+;{
 _MAIN:
 	DEBUG	'main'
-;	char c,*cptr;
-;	int  i;
-;	c=cptr;
+;    char c, *cptr;
+;    int i;
+;    c = cptr;
 	DEC	SP
 	PUSH	BC
 	PUSH	BC
@@ -21,7 +22,7 @@ _MAIN:
 	POP	DE
 	LD	A,L
 	LD	(DE),A
-;	c= *cptr;
+;    c = *cptr;
 	LD	HL,4
 	ADD	HL,SP
 	PUSH	HL
@@ -32,7 +33,7 @@ _MAIN:
 	POP	DE
 	LD	A,L
 	LD	(DE),A
-;	c = *(cptr + 3);
+;    c = *(cptr + 3);
 	LD	HL,4
 	ADD	HL,SP
 	PUSH	HL
@@ -45,7 +46,7 @@ _MAIN:
 	POP	DE
 	LD	A,L
 	LD	(DE),A
-;	i = *(iptr + 3);
+;    i = *(iptr + 3);
 	LD	HL,0
 	ADD	HL,SP
 	PUSH	HL

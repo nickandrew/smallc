@@ -2,67 +2,63 @@
 	COM	'<small c compiler output>'
 *MOD
 ;
-;char	gc,
+;char gc, *pgc, **ppgc;
 _GC:
 	DC	1,0
-;	*pgc,
 _PGC:
 	DC	2,0
-;	**ppgc;
 _PPGC:
 	DC	2,0
 ;
-;main(ac,pac,ppac)
-;char	ac,
+;main(ac, pac, ppac)
+;char ac, *pac, **ppac;
 _MAIN:
 	DEBUG	'main'
-;	*pac,
-;	**ppac;
 ;{
 ;
-;	gc = gc;
+;    gc = gc;
 	LD	A,(_GC)
 	CALL	CCSXT
 	LD	A,L
 	LD	(_GC),A
-;	gc = *pgc;
+;    gc = *pgc;
 	LD	HL,(_PGC)
 	CALL	CCGCHAR
 	LD	A,L
 	LD	(_GC),A
-;	gc = **ppgc;
+;    gc = **ppgc;
 	LD	HL,(_PPGC)
 	CALL	CCGINT
 	CALL	CCGCHAR
 	LD	A,L
 	LD	(_GC),A
 ;
-;	pgc = pgc;
+;    pgc = pgc;
 	LD	HL,(_PGC)
 	LD	(_PGC),HL
-;	pgc = *ppgc;
+;    pgc = *ppgc;
 	LD	HL,(_PPGC)
 	CALL	CCGINT
 	LD	(_PGC),HL
 ;
-;	ppgc = ppgc;
+;    ppgc = ppgc;
 	LD	HL,(_PPGC)
 	LD	(_PPGC),HL
 ;
-;	gc = ac;
+;    gc = ac;
 	LD	HL,6
 	ADD	HL,SP
 	CALL	CCGCHAR
 	LD	A,L
 	LD	(_GC),A
-;	gc = *pac;
+;    gc = *pac;
 	LD	HL,4
 	ADD	HL,SP
 	CALL	CCGINT
 	CALL	CCGCHAR
 	LD	A,L
 	LD	(_GC),A
-;	gc = **ppac;
+;    gc = **ppac;
 	LD	HL,2
 	ADD	HL,SP
 	CALL	CCGINT
@@ -71,19 +67,19 @@ _MAIN:
 	LD	A,L
 	LD	(_GC),A
 ;
-;	pgc = pac;
+;    pgc = pac;
 	LD	HL,4
 	ADD	HL,SP
 	CALL	CCGINT
 	LD	(_PGC),HL
-;	pgc = *ppac;
+;    pgc = *ppac;
 	LD	HL,2
 	ADD	HL,SP
 	CALL	CCGINT
 	CALL	CCGINT
 	LD	(_PGC),HL
 ;
-;	ppgc = ppac;
+;    ppgc = ppac;
 	LD	HL,2
 	ADD	HL,SP
 	CALL	CCGINT
@@ -91,7 +87,7 @@ _MAIN:
 ;
 ;/* pointer assignments */
 ;
-;	*pgc = gc;
+;    *pgc = gc;
 	LD	HL,(_PGC)
 	PUSH	HL
 	LD	A,(_GC)
@@ -99,7 +95,7 @@ _MAIN:
 	POP	DE
 	LD	A,L
 	LD	(DE),A
-;	*pgc = **ppgc;
+;    *pgc = **ppgc;
 	LD	HL,(_PGC)
 	PUSH	HL
 	LD	HL,(_PPGC)
@@ -109,20 +105,20 @@ _MAIN:
 	LD	A,L
 	LD	(DE),A
 ;
-;	*ppgc = *ppgc;
+;    *ppgc = *ppgc;
 	LD	HL,(_PPGC)
 	PUSH	HL
 	LD	HL,(_PPGC)
 	CALL	CCGINT
 	POP	DE
 	CALL	CCPINT
-;	*ppgc = ppgc;
+;    *ppgc = ppgc;
 	LD	HL,(_PPGC)
 	PUSH	HL
 	LD	HL,(_PPGC)
 	POP	DE
 	CALL	CCPINT
-;	**ppgc = ppgc;
+;    **ppgc = ppgc;
 	LD	HL,(_PPGC)
 	CALL	CCGINT
 	PUSH	HL
@@ -130,7 +126,7 @@ _MAIN:
 	POP	DE
 	LD	A,L
 	LD	(DE),A
-;	**ppgc = *ppgc;
+;    **ppgc = *ppgc;
 	LD	HL,(_PPGC)
 	CALL	CCGINT
 	PUSH	HL
@@ -140,7 +136,7 @@ _MAIN:
 	LD	A,L
 	LD	(DE),A
 ;
-;	*gc = ac;
+;    *gc = ac;
   /\
 **** Not a pointer type
 	LD	A,(_GC)
@@ -152,7 +148,7 @@ _MAIN:
 	POP	DE
 	LD	A,L
 	LD	(DE),A
-;	*gc = *pac;
+;    *gc = *pac;
   /\
 **** Not a pointer type
 	LD	A,(_GC)
@@ -165,7 +161,7 @@ _MAIN:
 	POP	DE
 	LD	A,L
 	LD	(DE),A
-;	*gc = **ppac;
+;    *gc = **ppac;
   /\
 **** Not a pointer type
 	LD	A,(_GC)
@@ -180,7 +176,7 @@ _MAIN:
 	LD	A,L
 	LD	(DE),A
 ;
-;	*pgc = pac;
+;    *pgc = pac;
 	LD	HL,(_PGC)
 	PUSH	HL
 	LD	HL,6
@@ -189,7 +185,7 @@ _MAIN:
 	POP	DE
 	LD	A,L
 	LD	(DE),A
-;	*pgc = *ppac;
+;    *pgc = *ppac;
 	LD	HL,(_PGC)
 	PUSH	HL
 	LD	HL,4
@@ -200,7 +196,7 @@ _MAIN:
 	LD	A,L
 	LD	(DE),A
 ;
-;	**ppgc = ppac;
+;    **ppgc = ppac;
 	LD	HL,(_PPGC)
 	CALL	CCGINT
 	PUSH	HL

@@ -1,4 +1,4 @@
-;int x,y;
+;int x, y;
 	COM	'<small c compiler output>'
 *MOD
 _X:
@@ -6,29 +6,30 @@ _X:
 _Y:
 	DC	2,0
 ;
-;main() {
+;main()
+;{
 _MAIN:
 	DEBUG	'main'
-; x = ++y;
+;    x = ++y;
 	LD	HL,(_Y)
 	INC	HL
 	LD	(_Y),HL
 	LD	(_X),HL
 ;
-; x = --y;
+;    x = --y;
 	LD	HL,(_Y)
 	DEC	HL
 	LD	(_Y),HL
 	LD	(_X),HL
 ;
-; x = y++;
+;    x = y++;
 	LD	HL,(_Y)
 	INC	HL
 	LD	(_Y),HL
 	DEC	HL
 	LD	(_X),HL
 ;
-; x = y--;
+;    x = y--;
 	LD	HL,(_Y)
 	DEC	HL
 	LD	(_Y),HL

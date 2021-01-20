@@ -12,7 +12,7 @@ _B:
 ;char *(c[5]);
 _C:
 	DC	5,0
-;int  **d;
+;int **d;
 _D:
 	DC	2,0
 ;

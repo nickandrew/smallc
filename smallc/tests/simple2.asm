@@ -1,18 +1,18 @@
-;char  *charptr;
+;char *charptr;
 	COM	'<small c compiler output>'
 *MOD
 _CHARPTR:
 	DC	2,0
 ;
-;main(argc,argv)
+;main(argc, argv)
 ;char *argv[];
 _MAIN:
 	DEBUG	'main'
 ;int argc;
 ;{
-;   char *fred[7];
-;   int  var1,var2;
-;   charptr=argv[-2];
+;    char *fred[7];
+;    int var1, var2;
+;    charptr = argv[-2];
 	LD	HL,-18
 	ADD	HL,SP
 	LD	SP,HL
@@ -23,7 +23,7 @@ _MAIN:
 	ADD	HL,DE
 	CALL	CCGINT
 	LD	(_CHARPTR),HL
-;   charptr=fred[-2];
+;    charptr = fred[-2];
 	LD	HL,4
 	ADD	HL,SP
 	LD	DE,-4
@@ -31,7 +31,7 @@ _MAIN:
 	CALL	CCGINT
 	LD	(_CHARPTR),HL
 ;
-;   charptr=argv[-1];
+;    charptr = argv[-1];
 	LD	HL,20
 	ADD	HL,SP
 	CALL	CCGINT
@@ -39,7 +39,7 @@ _MAIN:
 	DEC	HL
 	CALL	CCGINT
 	LD	(_CHARPTR),HL
-;   charptr=fred[-2];
+;    charptr = fred[-2];
 	LD	HL,4
 	ADD	HL,SP
 	LD	DE,-4
@@ -47,19 +47,19 @@ _MAIN:
 	CALL	CCGINT
 	LD	(_CHARPTR),HL
 ;
-;   charptr=argv[0];
+;    charptr = argv[0];
 	LD	HL,20
 	ADD	HL,SP
 	CALL	CCGINT
 	CALL	CCGINT
 	LD	(_CHARPTR),HL
-;   charptr=fred[0];
+;    charptr = fred[0];
 	LD	HL,4
 	ADD	HL,SP
 	CALL	CCGINT
 	LD	(_CHARPTR),HL
 ;
-;   charptr=argv[1];
+;    charptr = argv[1];
 	LD	HL,20
 	ADD	HL,SP
 	CALL	CCGINT
@@ -67,7 +67,7 @@ _MAIN:
 	INC	HL
 	CALL	CCGINT
 	LD	(_CHARPTR),HL
-;   charptr=fred[1];
+;    charptr = fred[1];
 	LD	HL,4
 	ADD	HL,SP
 	INC	HL
@@ -75,7 +75,7 @@ _MAIN:
 	CALL	CCGINT
 	LD	(_CHARPTR),HL
 ;
-;   charptr=argv[2];
+;    charptr = argv[2];
 	LD	HL,20
 	ADD	HL,SP
 	CALL	CCGINT
@@ -83,7 +83,7 @@ _MAIN:
 	ADD	HL,DE
 	CALL	CCGINT
 	LD	(_CHARPTR),HL
-;   charptr=fred[2];
+;    charptr = fred[2];
 	LD	HL,4
 	ADD	HL,SP
 	LD	DE,4
